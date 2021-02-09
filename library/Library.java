@@ -24,7 +24,13 @@ public class Library {
 	}
 	
 	public void printAddress() {
-		System.out.prinln(this.address);
+		System.out.println(this.address);
+	}
+	
+	public void borrowBook(String title) {
+		//need to check if book is there to borrow
+		//is it in the catalog
+		//and then check the status: borrowed or unborrowed
 	}
 	
 } 
