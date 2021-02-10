@@ -17,12 +17,13 @@ public class Library {
 	}
 	
 	public void addBook(Book newBook) {
-		catalog.add(newBook);
+		this.catalog.add(newBook);
+		System.out.println(this.catalog.get(this.catalog.size()-1).getTitle());
 		
 	}
 	
 	public void removeBook(Book newBook) {
-		catalog.remove(newBook);
+		this.catalog.remove(newBook);
 	}
 	
 	public static void printOpeningHours() {
@@ -33,40 +34,56 @@ public class Library {
 		System.out.println(this.address);
 	}
 	
-	public void borrowBook(String title) {
+	public void borrowBook(String bookTitle) {
 		//need to check if book is there to borrow
 		//is it in the catalog
 		//and then check the status: borrowed or unborrowed
 		boolean inLibrary = false;
-		for(Book libBook: catalog) {
-			if(libBook.title.equalsIgnoreCase(title))
+		for(Book libBook: this.catalog) {
+			//System.out.print(libBook.getTitle());
+			if(libBook.getTitle().equalsIgnoreCase(bookTitle)) {
+				//System.out.println(libBook.getTitle()+"YIPPEEE");
 				inLibrary = true;
 				break;
+			}
 		}
-		if(inLibrary == false)
-			System.out.println("Book is not in catalog");
-		
+		if(inLibrary == false) {
+			System.out.println("Sorry, this book is not in our catalog.");
+		}
 		if (inLibrary)
-			for(Book libBook : catalog) {
-				if(libBook.isBorrowed())
-					System.out.println("This book is currently checked out");
-				else
-					libBook.borrowed();
+			for(Book libBook : this.catalog) {
+				if(libBook.isBorrowed()) {
+					System.out.println("Sorry, this book is already borrowed.");
+				}
+				else {
+					if(libBook.getTitle().equalsIgnoreCase(bookTitle)) {
+						System.out.println("You sucessfully borrowed "+bookTitle);
+						libBook.borrowed();
+					}
+				}
 			}		
 	}
 	
 	public void printAvailableBooks() {
-		for(Book libBook: catalog) {
-			System.out.println(libBook.title);
+		if(this.catalog.size()==0 || this.catalog ==null)
+			System.out.println("No book in catalog");
+		else
+			for(Book libBook: this.catalog) {
+				if(libBook.isBorrowed()==false)
+					System.out.println(libBook.title);
 		}
 	}
 	
-	public void returnBook(String title) {
-		for(Book libBook: catalog) {
-			if(libBook.title.equalsIgnoreCase(title))
+	public void returnBook(String bookTitle) {
+		for(Book libBook: this.catalog) {
+			if(libBook.getTitle().equalsIgnoreCase(bookTitle)) {
+				System.out.println("You successfully returned The Lord of the Rings");
 				libBook.returned();
-			else
+				break;
+			}
+			else {
 				System.out.println("This book is not in this library");
+			}
 		}
 	}
 	

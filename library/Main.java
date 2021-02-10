@@ -13,14 +13,14 @@ public class Main {
         firstLibrary.addBook(new Book("A Tale of Two Cities"));
         firstLibrary.addBook(new Book("The Lord of the Rings"));
         
-        //Testing of the Book class on its own
-        Book example = new Book("The Da Vinci Code");
-        System.out.println("Title (should be The Da Vinci Code): " + example.getTitle());
-        System.out.println("Borrowed? (should be false): " + example.isBorrowed());
-        example.borrowed();
-        System.out.println("Borrowed? (should be true): " + example.isBorrowed());
-        example.returned();
-        System.out.println("Borrowed? (should be false): " + example.isBorrowed());
+//        //Testing of the Book class on its own
+//        Book example = new Book("The Da Vinci Code");
+//        System.out.println("Title (should be The Da Vinci Code): " + example.getTitle());
+//        System.out.println("Borrowed? (should be false): " + example.isBorrowed());
+//        example.borrowed();
+//        System.out.println("Borrowed? (should be true): " + example.isBorrowed());
+//        example.returned();
+//        System.out.println("Borrowed? (should be false): " + example.isBorrowed());
         
 
         // Print opening hours and the addresses
