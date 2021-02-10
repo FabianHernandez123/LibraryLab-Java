@@ -75,16 +75,20 @@ public class Library {
 	}
 	
 	public void returnBook(String bookTitle) {
+		boolean bookPres= false;
 		for(Book libBook: this.catalog) {
 			if(libBook.getTitle().equalsIgnoreCase(bookTitle)) {
 				System.out.println("You successfully returned The Lord of the Rings");
 				libBook.returned();
+				bookPres = true;
 				break;
 			}
-			else {
-				System.out.println("This book is not in this library");
-			}
 		}
+		if (bookPres==false) {
+			System.out.println("This book is not in this library");
+		}
+			//think about whether you need to say if a book is not in the catalog
+		
 	}
 	
 } 
