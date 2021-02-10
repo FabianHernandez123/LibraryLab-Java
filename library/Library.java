@@ -18,7 +18,7 @@ public class Library {
 	
 	public void addBook(Book newBook) {
 		this.catalog.add(newBook);
-		System.out.println(this.catalog.get(this.catalog.size()-1).getTitle());
+		
 		
 	}
 	
@@ -27,7 +27,7 @@ public class Library {
 	}
 	
 	public static void printOpeningHours() {
-		System.out.println("Daily from 9am to 5pm.");		
+		System.out.println("Libraries are open daily from 9am to 5pm.");		
 	}
 	
 	public void printAddress() {
@@ -40,9 +40,9 @@ public class Library {
 		//and then check the status: borrowed or unborrowed
 		boolean inLibrary = false;
 		for(Book libBook: this.catalog) {
-			//System.out.print(libBook.getTitle());
+			//checking if book is in the catalog, but through iterating through every title
+			//since the titles aren't easily accessible through the catalog arraylist
 			if(libBook.getTitle().equalsIgnoreCase(bookTitle)) {
-				//System.out.println(libBook.getTitle()+"YIPPEEE");
 				inLibrary = true;
 				break;
 			}
