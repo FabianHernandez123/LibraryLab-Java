@@ -56,7 +56,6 @@ public class Main {
         // Print the titles of available from the first library
         System.out.println("Books available in the first library:");
         firstLibrary.printAvailableBooks();
-
 	}
 
 }
